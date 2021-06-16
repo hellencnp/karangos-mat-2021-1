@@ -70,20 +70,20 @@ function Main() {
         <Box id="routed" className={classes.routed}>
           <Switch> {/* Determina qual elemento será exibido, de acordo com a rota */}
             
-            <Route path="/">
+            <Route exact path="/">
               <Homepage/>
             </Route>
 
-            <Route path="/list">
+            <Route exact path="/list">
               <KarangosList />
             </Route>
 
-            <Route path="/new">
+            <Route exact path="/new">
               <KarangosForm />
             </Route>
 
             {/* :id é um parâmetro (espécie de variável de rota) */}
-            <Route path="/edit/:id">
+            <Route exact path="/edit/:id">
               <KarangosForm />
             </Route>
 
