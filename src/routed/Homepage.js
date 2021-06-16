@@ -2,9 +2,9 @@
 
     Esta prova consiste em acrescentar um novo componente/página ao projeto Karangos.
 
-    1. Copie este arquivo para a pasta src/routed.
-
-    2. Copie o arquivo "vintage-cars.png" para a pasta src.
+    1. Copie o arquivo "vintage-cars.png" para a pasta src. 
+    
+    2. Copie este arquivo para a pasta src/routed.
 
     3. Altere o arquivo "Apps.js" e adicione um novo Route, com o valor path="/". Assegure-se de que esse novo Route seja POSICIONADO ANTES de todos os outros. Faça com que o componente HomePage seja carregado pelo novo Route. Dessa forma, o componente será exibido logo no início. 
 
@@ -12,7 +12,7 @@
 
         Sobre o projeto Karangos
 
-        Karangos é um projeto front-end desenvolvido pelo Prof. Fausto Cintra juntamente com a turma do 4º semestre noturno de ADS da Fatec Franca.
+        Karangos é um projeto front-end desenvolvido pelo Prof. Fausto Cintra juntamente com a turma do 4º semestre matutino de ADS da Fatec Franca.
             
         Seu objetivo é demonstrar as funcionalidades e possibilidades do React em conjunto com a biblioteca de componentes Material UI, acessando uma API REST remota.
             
@@ -28,49 +28,48 @@
 
     9. Ao clicar no botão criado no passo 5, a variável "visible" deve inverter seu valor (ou seja,  de true para false ou de false para true). Veja, na animação contida no arquivo "resultado.gif", o resultado pretendido.  
 
-    10. Coloque os arquivos "App.js" e "HomePage.js" em um ZIP para fazer a entrega da prova.
+    10. Coloque os arquivos "App.js" e "Homepage.js" em um ZIP para fazer a entrega da prova.
 
 */
 
-import { React, useState } from 'react'
 import { makeStyles } from '@material-ui/styles'
+import { React, useState } from 'react'
 import carro from '../img/vintage-cars.png'
 import { Button } from '@material-ui/core'
 
 const useStyles = makeStyles({
     figura: {
+        transition: 'opacity 1s linear',
         display: 'block',
-        margin: '0 auto',
-        transition: 'opacity 1s linear'
+        margin: '0 auto'
+       
     },
-    surpresaButton: {
+    paragBotao: {
         textAlign: 'center'
     }
 })
 
-export default function HomePage() {
+export default function Homepage() {
     const classes = useStyles()
-
     const [visible,setVisible] = useState (false)   // Transforme isto em uma variável de estado
-
     return (
         <>
         <h1>Sobre o projeto Karangos</h1>
-			<p>Karangos é um projeto front-end desenvolvido pelo Prof. Fausto Cintra juntamente com a turma do 4º semestre noturno de ADS da Fatec Franca.</p>
+			<p>Karangos é um projeto front-end desenvolvido pelo Prof. Fausto Cintra juntamente com a turma do 4º semestre matutino de ADS da Fatec Franca.</p>
 			<p>Seu objetivo é demonstrar as funcionalidades e possibilidades do React em conjunto com a biblioteca de componentes Material UI, acessando uma API REST remota.</p>
 			<p>Clique sobre ícone do menu no canto superior esquerdo para acessar as funcionalidades.</p>
-			<p className={classes.surpresaButton}>
+			<p className={classes.paragBotao}>
 
 				<Button
 					variant="contained"
 					color="secondary"
 					onClick={() => (setVisible(!visible))}
 				>
-					Surpresa!
+                Surpresa!
 				</Button>
 			</p>
             
-            <img src={carro} className={classes.figura} alt="Carros antigos" style={{opacity: visible ? '1' : '0', height: visible ? '591px': '0'}} />
+            <img src={carro} className={classes.figura} alt="Carros antigos" style={{height: visible ? '591px': '0', opacity: visible ? '1' : '0'}} />
         </>
     )
 }

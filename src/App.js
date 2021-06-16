@@ -34,7 +34,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import KarangosList from './routed/KarangosList2'
 import KarangosForm from './routed/KarangosForm'
-import HomePage from './routed/HomePage';
+import Homepage from './routed/Homepage';
 
 const theme = createMuiTheme({
   palette: {
@@ -71,7 +71,7 @@ function Main() {
           <Switch> {/* Determina qual elemento será exibido, de acordo com a rota */}
             
             <Route path="/">
-              <HomePage/>
+              <Homepage/>
             </Route>
 
             <Route path="/list">
